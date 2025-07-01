@@ -1,33 +1,20 @@
 <template>
-  <v-container class="d-flex justify-center align-center fill-height w-full">
-    <v-card class="pa-6" max-width="100%">
-      <v-card-title class="text-h5 font-weight-bold justify-center">로그인</v-card-title>
+  <v-container fluid class="d-flex align-center justify-center fill-height">
+    <v-card class="pa-6" max-width="400" width="100%" elevation="4">
+      <v-card-title class="text-h5 font-weight-bold justify-center">
+        로그인
+      </v-card-title>
 
       <v-form @submit.prevent="handleLogin" ref="form" lazy-validation>
-        <v-text-field
-          v-model="id"
-          label="아이디"
-          required
-          prepend-icon="mdi-account"
-        />
+        <v-text-field v-model="id" label="아이디" required prepend-icon="mdi-account" />
 
-        <v-text-field
-          v-model="password"
-          label="비밀번호"
-          type="password"
-          required
-          prepend-icon="mdi-lock"
-        />
+        <v-text-field v-model="password" label="비밀번호" type="password" required prepend-icon="mdi-lock" />
 
-        <v-btn type="submit" color="primary" class="mt-4" block>로그인</v-btn>
+        <v-btn type="submit" color="primary" class="mt-4" block>
+          로그인
+        </v-btn>
 
-        <v-alert
-          v-if="errorMessage"
-          type="error"
-          class="mt-4"
-          dense
-          border="start"
-        >
+        <v-alert v-if="errorMessage" type="error" class="mt-4" dense border="start">
           {{ errorMessage }}
         </v-alert>
       </v-form>

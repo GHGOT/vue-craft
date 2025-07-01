@@ -6,12 +6,17 @@
     permanent
   >
     <v-list nav dense>
-      <v-list-item link to="/dashboard">
+      <v-list-item link to="/Dashboard">
         <v-list-item-icon><v-icon>mdi-view-dashboard</v-icon></v-list-item-icon>
         <v-list-item-title>대시보드</v-list-item-title>
       </v-list-item>
 
-      <v-list-item link to="/settings">
+      <v-list-item link to="/Attendance">
+        <v-list-item-icon><v-icon>mdi-account-hard-hat</v-icon></v-list-item-icon>
+        <v-list-item-title>근태</v-list-item-title>
+      </v-list-item>
+
+      <v-list-item link to="/Setting">
         <v-list-item-icon><v-icon>mdi-cog</v-icon></v-list-item-icon>
         <v-list-item-title>설정</v-list-item-title>
       </v-list-item>

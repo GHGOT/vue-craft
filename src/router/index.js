@@ -2,6 +2,7 @@ import { createRouter, createWebHistory } from "vue-router";
 import DefaultLayout from "@/layouts/DefaultLayout.vue";
 import LoginPage from "@/pages/LoginPage.vue";
 import Dashboard from "@/pages/DashboardPage.vue";
+import Attendance from "@/pages/attendance/AttendancePage.vue";
 
 const routes = [
   {
@@ -17,6 +18,11 @@ const routes = [
         path: "/Dashboard",
         name: "Dashboard",
         component: Dashboard,
+      },
+      {
+        path: "/Attendance",
+        name: "Attendance",
+        component: Attendance,
       },
       // 👇 여기에 추가적인 페이지들
       // {
