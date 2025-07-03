@@ -1,33 +1,38 @@
 <template>
   <div class="login-container">
-    <h2>근태현황</h2>    
+    <h2>근태현황</h2>
+    <BaseButton color="success" :loading="isLoading" @click="handleSave">저장</BaseButton>
+  </div>
+  <div v-if="dialog">
+    <BaseCards
+      title="저장 완료"
+      message="API가 성공적으로 수정되었습니다."
+      icon="mdi-check-circle"
+      color="success"
+      buttonText="확인"
+      @close="closeCard"
+      @action="closeCard"
+    />
   </div>
 </template>
 
 <script setup>
-// // import { ref } from 'vue'
-// // import { useAuthStore } from '@/stores/auth'
-// import { useRouter } from 'vue-router'
+import { ref } from 'vue'
+import BaseButton from '@/components/common/BaseButton.vue'
+import BaseCards from '@/components/common/BaseCards.vue'
 
-// const id = ref('')
-// const password = ref('')
-// const errorMessage = ref('')
-// const router = useRouter()
-// const authStore = useAuthStore()
+const isLoading = ref(false)
+const dialog = ref(false)
 
-// const handleLogin = async () => {
-//   try{
+function handleSave() {
+  dialog.value = true
+  isLoading.value = true
+  setTimeout(() => (isLoading.value = false), 3000)
+}
 
-//     const success = await authStore.login(id.value, password.value, '0')    
-//     if (success.result == 0) {      
-//       router.push('/Dashboard') // 로그인 성공 시 메인 페이지로
-//     } else {
-//       errorMessage.value = '로그인에 실패했습니다.'
-//     }
-//   } catch(e) {
-//     console.log(e)
-//   }
-// }
+function closeCard() {
+  dialog.value = false
+}
 </script>
 
 <style scoped>
@@ -36,6 +41,7 @@
   margin: auto;
   padding: 1rem;
 }
+
 .error {
   color: red;
 }

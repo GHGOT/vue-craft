@@ -27,7 +27,7 @@ import { ref } from 'vue'
 import { useAuthStore } from '@/stores/auth'
 import { useRouter } from 'vue-router'
 
-const id = ref('')
+const id = ref()
 const password = ref('')
 const errorMessage = ref('')
 const router = useRouter()
@@ -36,6 +36,7 @@ const authStore = useAuthStore()
 const handleLogin = async () => {
   try {
     const success = await authStore.login(id.value, password.value, '0')
+
     if (success.result == 0) {
       router.push('/Dashboard')
     } else {
