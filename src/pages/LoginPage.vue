@@ -38,6 +38,8 @@ const handleLogin = async () => {
     const success = await authStore.login(id.value, password.value, '0')
 
     if (success.result == 0) {
+      // 로그인 성공 시, 스토어에서 사용자 정보 관리
+      // authStore.setUser(success.data[0])
       router.push('/Dashboard')
     } else {
       errorMessage.value = '로그인에 실패했습니다.'
